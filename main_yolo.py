@@ -1,7 +1,7 @@
 from datasets import load_dataset
 from datasets import DatasetDict
 import matplotlib.pyplot as plt
-
+###DETTA ÄR ETT CLASSIFICATION DATASET, VI TRÄNAR YOLOV8m-cls
 dataset = load_dataset("emre570/breastcancer-ultrasound-images")
 
 test_num = len(dataset["test"])
