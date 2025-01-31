@@ -1,1 +1,6 @@
 /env
+*.png
+*.txt
+*.parquet
+*.vscode
+/__pycache__

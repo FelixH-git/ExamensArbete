@@ -1,0 +1,12 @@
+
+
+train breastcancer-ultrasound-images/data/train
+val breastcancer-ultrasound-images/data/val
+test breastcancer-ultrasound-images/data/test
+
+nc: 3
+
+names:
+    0: benign
+    1: malignant
+    2: normal

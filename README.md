@@ -1,1 +1,1 @@
-pip install -r requirements.txt
+pip install -r requirements.txt, please uninstall torch and install it via cuda at https://pytorch.org/get-started/locally/
