@@ -33,21 +33,24 @@ print(val_ds)
 print(torch.cuda.is_available())
 
 shown_labels = set()
-
-# split_data(train_ds, "train")
-# split_data(val_ds, "val")
-# split_data(test_ds, "test")
-
-model = YOLO("yolov8m-cls.pt")
+#f.write(f"{data["label"][i]}")
 
 
-model.train(
-    data="C:/Users/metal/Desktop/ExamensArbete/data.yaml",
-    epochs=100,
-    imgsz=640,
-    device= 0 if torch.cuda.is_available() else "cpu",
-    save=True
-)
+#for i in range(len(train_ds)):
+split_data(train_ds, "train")
+split_data(val_ds, "val")
+split_data(test_ds, "test")
+
+# model = YOLO("yolov8m-cls.pt")
+
+
+# model.train(
+#     data="data.yaml",
+#     epochs=100,
+#     imgsz=640,
+#     device= 0 if torch.cuda.is_available() else "cpu",
+#     save=True
+# )
 
 
 
