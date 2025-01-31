@@ -1,0 +1,11 @@
+
+
+train: train/
+val: val/
+test: test/
+
+nc: 3
+names: ['benign', 'malignant', 'normal']
+    0: benign
+    1: malignant
+    2: normal
