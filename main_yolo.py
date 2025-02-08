@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torch
 from ultralytics import YOLO
 from parquet_to_yolo import split_data
+import matplotlib.pyplot as plt
 import PIL
 ###DETTA ÄR ETT CLASSIFICATION DATASET, VI TRÄNAR YOLOV8m-cls
 dataset = load_dataset("emre570/breastcancer-ultrasound-images")
@@ -27,19 +28,32 @@ train_ds = dataset["train"]
 val_ds = dataset["validation"]
 test_ds = dataset["test"]
 
+# print(train_ds['label'], "Train")
+# print(val_ds['label'], "Validation")
 
-print(train_ds)
-print(val_ds)
-print(torch.cuda.is_available())
-
-shown_labels = set()
-#f.write(f"{data["label"][i]}")
+how_many_labels_per_class_val = {"benign": 0, "malignant": 0, "normal": 0}
 
 
-#for i in range(len(train_ds)):
-split_data(train_ds, "train")
-split_data(val_ds, "val")
-split_data(test_ds, "test")
+for i in range(len(val_ds["label"])):
+    if train_ds["label"][i] == 0:
+        how_many_labels_per_class_val["benign"] += 1
+    if train_ds["label"][i] == 1:
+        how_many_labels_per_class_val["malignant"] += 1
+    if train_ds["label"][i] == 2:
+        how_many_labels_per_class_val["normal"] += 1
+        
+         
+print(how_many_labels_per_class_val)
+
+plt.bar(how_many_labels_per_class_val.keys(), how_many_labels_per_class_val.values(), width=0.8, color="r")
+plt.show()
+
+
+
+### Split data set into yolov8 format look at parquet to yolo
+# split_data(train_ds, "train")
+# split_data(val_ds, "val")
+# split_data(test_ds, "test")
 
 # model = YOLO("yolov8m-cls.pt")
 
@@ -56,20 +70,8 @@ split_data(test_ds, "test")
 
 
 
-# plt.figure(figsize=(10, 10))
-
-    
-
-#train_ds["image"][0].save(fr"breastcancer-ultrasound-images\data\train\test.png")
-
-#print(train_ds["label"][0])
-
-# with open("test.txt", "w") as f:
-#     f.write(train_ds["label"][0])
  
 
     
     
-    
-        
-#plt.show()
+   
