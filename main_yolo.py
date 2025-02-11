@@ -1,5 +1,6 @@
 from datasets import load_dataset
 from datasets import DatasetDict
+import pandas as pd
 import matplotlib.pyplot as plt
 import torch
 from ultralytics import YOLO
@@ -7,7 +8,7 @@ from parquet_to_yolo import split_data
 import matplotlib.pyplot as plt
 import PIL
 ###DETTA ÄR ETT CLASSIFICATION DATASET, VI TRÄNAR YOLOV8m-cls
-dataset = load_dataset("emre570/breastcancer-ultrasound-images")
+dataset = pd.read_csv("emre570/breastcancer-ultrasound-images")
 
 test_num = len(dataset["test"])
 train_num = len(dataset["train"])
