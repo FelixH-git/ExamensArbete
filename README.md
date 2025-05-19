@@ -6,6 +6,6 @@ In order to train, go to the datasets folder and run
 
 ```
 
-yolo task=classify mode=train data=dataset model=yolov8m-cls.pt epochs=256
+yolo task=classify mode=train data=dataset model=yolov8m-cls.pt epochs=200
 
 ```
